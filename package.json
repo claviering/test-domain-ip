@@ -1,6 +1,6 @@
 {
   "name": "test-domain-ip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "在 site.ip138.com 查询域名当前解析的IP，逐个 ping 测试",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
