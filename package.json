@@ -9,7 +9,14 @@
     "test-domain-ip": "index.js"
   },
   "preferGlobal": true,
-  "keywords": [],
+  "keywords": [
+    "ip",
+    "domain"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claviering/test-domain-ip"
+  },
   "author": "weiye",
   "license": "ISC",
   "dependencies": {},
