@@ -8,16 +8,15 @@ const logSymbols = require('log-symbols');
 commander.version('1.0.0').description('test domain ip').parse(process.argv);
 
 async function run(args) {
-  if (!args || !args.length) {
-    console.log("domain is empty");
-    return;
-  }
   let domain = args[0];
   const spinner = ora(`test ${domain} ...`).start();
+  if (!args || !args.length) {
+    spinner.fail("domain is empty, try again");
+    return;
+  }
   let res = await reptile(domain);
   if (!res || !res.data || !res.data.length) {
-    console.log(`\nfinding ${domain} ip is empty`);
-    spinner.stop();
+    spinner.fail(`finding ${domain} ip is empty, try again`);
     return;
   }
   let ipList = res.data.map(item => item.ip);
@@ -49,6 +48,6 @@ async function run(args) {
   messageList.forEach(item => {
     console.log(item.status, item.ip);
   })
-  spinner.info('total ip ' + ipList.length + ' success: ' + count + ' fail: ' + (ipList.length - count));
+  spinner.info(ipList.length + ' total; ' + count + ' success; ' + (ipList.length - count) + ' fail.');
 }
 run(commander.args)

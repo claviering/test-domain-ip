@@ -1,9 +1,11 @@
 {
   "name": "test-domain-ip",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "在 site.ip138.com 查询域名当前解析的IP，逐个 ping 测试",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node index.js translate.google.cn",
+    "deploy": "npm link",
+    "publish": "npm publish"
   },
   "bin": {
     "test-domain-ip": "index.js"
